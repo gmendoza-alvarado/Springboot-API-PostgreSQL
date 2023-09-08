@@ -25,6 +25,8 @@ public class User implements Serializable {
 	private String surName;
 	private int age;
 	private Boolean enabled;
+	private String email;
+	private String password;
 
 	@ManyToOne
 	@JoinColumn(name = "country_id")
@@ -35,17 +37,21 @@ public class User implements Serializable {
 	private State state;
 
 
-	public User(int id, String name, String surName, int age, Boolean enabled, Country country, State state) {
+	 public User(int id, String name, String surName, int age, Boolean enabled, String email, String password,
+			Country country, State state) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.surName = surName;
 		this.age = age;
 		this.enabled = enabled;
+		this.email = email;
+		this.password = password;
 		this.country = country;
 		this.state = state;
 	}
-	 public User() {}
+
+	public User() {}
 
 	public int getId() {
 		return id;
@@ -101,6 +107,21 @@ public class User implements Serializable {
 
 	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
+	}
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }
